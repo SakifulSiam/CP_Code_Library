@@ -1,0 +1,53 @@
+\section{Basic Math and Formula Sheet}
+\subsection{Integer Arithmetic}
+\begin{itemize}
+  \setlength{\itemsep}{0.2ex}
+  \setlength{\topsep}{0.3ex}
+  \setlength{\parsep}{0pt}
+  \setlength{\partopsep}{0pt}
+  \item Euclidean algorithm: $\gcd(a,b)=\gcd(b,a\bmod b)$; $\operatorname{lcm}(a,b)=|ab|/\gcd(a,b)$ (divide first to reduce overflow).
+  \item Divisibility: if $d\mid a$ and $d\mid b$, then $d\mid (xa+yb)$ for integers $x,y$.
+  \item For $n>0$, the number of divisors is $\prod (e_i+1)$ and their sum is $\prod (1+p_i+\cdots+p_i^{e_i})$ when $n=\prod p_i^{e_i}$.
+\end{itemize}
+\subsection{Sums and Counting}
+\begin{itemize}
+  \setlength{\itemsep}{0.2ex}
+  \setlength{\topsep}{0.3ex}
+  \setlength{\parsep}{0pt}
+  \setlength{\partopsep}{0pt}
+  \item $1+2+\cdots+n=n(n+1)/2$; $\sum_{i=1}^n i^2=n(n+1)(2n+1)/6$; $\sum_{i=1}^n i^3=[n(n+1)/2]^2$.
+  \item Arithmetic progression: $S_n=n(a_1+a_n)/2$. Geometric progression: $1+r+\cdots+r^n=(r^{n+1}-1)/(r-1)$ for $r\ne1$.
+  \item $\binom nk=\binom n{n-k}$ and $\binom nk=\binom{n-1}k+\binom{n-1}{k-1}$.
+  \item Pigeonhole principle: placing more than $k$ objects into $k$ boxes forces some box to contain at least two objects.
+\end{itemize}
+\subsection{Modular Arithmetic}
+\begin{itemize}
+  \setlength{\itemsep}{0.2ex}
+  \setlength{\topsep}{0.3ex}
+  \setlength{\parsep}{0pt}
+  \setlength{\partopsep}{0pt}
+  \item Normalize possibly negative $x$ by $(x\%m+m)\%m$ for $m>0$.
+  \item $(a+b)\bmod m$, $(a-b)\bmod m$, and $(ab)\bmod m$ can be computed from residues; use a wide integer type for products.
+  \item Division modulo $m$ means multiplication by an inverse. $a^{-1}$ exists exactly when $\gcd(a,m)=1$.
+  \item For prime $p$ and $p\nmid a$, Fermat gives $a^{p-1}\equiv1\pmod p$ and $a^{-1}\equiv a^{p-2}\pmod p$.
+\end{itemize}
+\subsection{Binary Search Checklist}
+\begin{itemize}
+  \setlength{\itemsep}{0.2ex}
+  \setlength{\topsep}{0.3ex}
+  \setlength{\parsep}{0pt}
+  \setlength{\partopsep}{0pt}
+  \item Binary search needs a monotone predicate: once true (or false), it stays that way on the remaining side.
+  \item Maintain a clear invariant such as $P(l)=\text{false}$ and $P(r)=\text{true}$; stop when $r-l=1$.
+  \item Use $l+(r-l)/2$ to avoid midpoint overflow. For answer search, first prove a feasible bound and test feasibility in each step.
+\end{itemize}
+\subsection{Bit and Geometry Reminders}
+\begin{itemize}
+  \setlength{\itemsep}{0.2ex}
+  \setlength{\topsep}{0.3ex}
+  \setlength{\parsep}{0pt}
+  \setlength{\partopsep}{0pt}
+  \item $x\&(-x)$ isolates the lowest set bit; $x\&(x-1)$ removes it; a positive power of two satisfies $(x\&(x-1))=0$.
+  \item Squared Euclidean distance is $(x_1-x_2)^2+(y_1-y_2)^2$; compare it instead of taking square roots.
+  \item For integer points, the cross product gives orientation; polygon area is half the absolute shoelace sum. See Basic Geometry.cpp.
+\end{itemize}

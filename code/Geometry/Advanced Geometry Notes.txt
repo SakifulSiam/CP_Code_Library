@@ -1,0 +1,28 @@
+CONVEX HULL
+Use monotonic chain to keep only extreme points. Sort points lexicographically,
+build lower and upper chains, and remove the last point while the turn is not
+counterclockwise. Complexity O(n log n). The Convex Hull.cpp file contains code.
+
+ROTATING CALIPERS
+For a convex polygon in counterclockwise order, move a second pointer around
+the polygon as the edge direction rotates. The area between an edge and the
+opposite vertex increases until the antipodal vertex is reached. This gives
+the farthest pair in O(n); see Rotating Calipers.cpp. Squared distances avoid
+floating-point comparisons.
+
+HALF-PLANE INTERSECTION
+A directed line keeps the half-plane on its left. Sort lines by angle, remove
+redundant parallel lines, and maintain a deque of candidate boundary lines.
+When a new line arrives, remove the back/front line while their intersection
+lies outside the new half-plane. Close the deque at the end. Typical complexity
+O(n log n). Be explicit about parallel lines, empty/unbounded output, and
+epsilon comparisons. For a bounded polygon, add a sufficiently large bounding
+box before processing if the problem permits it.
+
+MINKOWSKI SUM AND DIFFERENCE
+For point sets A and B, A+B = {a+b : a in A, b in B}; A-B = A+(-B).
+For convex polygons, rotate each CCW polygon to its lowest (y,x) vertex, then
+merge their cyclic edge vectors by polar angle. Equal-angle edges are combined.
+This computes the result in O(n+m) after hulls are available. To test whether
+convex polygons intersect, test whether the origin lies in A+(-B). Handle
+degenerate point/segment polygons separately when the input allows them.
