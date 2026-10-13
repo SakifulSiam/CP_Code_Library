@@ -47,34 +47,12 @@
     $()((())), (())(()), (()(())), ((()())), ((())()), ((()))()$
     \item The number of paths from (0,0) to (2n, 0) with steps only northeast and southeast, not staying below the x-axis with k peaks. And sum of all number of peaks is Catalan number.
 \end{itemize}
-\subsubsection{Stirling Numbers of the Second Kind}
+\subsubsection{Stirling Numbers (2nd Kind)}
+$S(n,k) = k S(n-1,k) + S(n-1,k-1)$; partitions $n$ objects into $k$ non-empty subsets. See Stirling Numbers.cpp.
 
-\begin{itemize}
-  \setlength{\itemsep}{0.2ex}
-  \setlength{\topsep}{0.3ex}
-  \setlength{\parsep}{0pt}
-  \setlength{\partopsep}{0pt}
-    \item Number of ways to partition a set of n objects into k non-empty subsets.
-    \item $S(n,k) = k*S(n-1,k)+S(n-1,k-1), S(0,0) = 1, S(n,0) = S(0,n) = 0$
-    \item $S(n,2) = 2^{n-1}-1$
-    \item $S(n,k) = \frac{1}{k!}\sum\limits_{j=0}^{k}(-1)^{k-j}\binom{k}{j}j^n$
-   
-    \item $S(n,k)*k!$ = number of ways to color n nodes using colors from 1 to k such that each color is used at least once.
-\end{itemize}
 \subsubsection{Lucas Theorem}
+$\binom{m}{n} \equiv \prod_{i=0}^k \binom{m_i}{n_i} \pmod p$ with base-$p$ digits $m_i, n_i$. See Lucas Theorem.cpp.
 
-\begin{itemize}
-  \setlength{\itemsep}{0.2ex}
-  \setlength{\topsep}{0.3ex}
-  \setlength{\parsep}{0pt}
-  \setlength{\partopsep}{0pt}
-    \item If p is prime then $\binom{p^a}{k}\equiv 0\mod p$
-    \item For non-negative integers m and n and a prime p:\\
-    $\binom{m}{n} = \prod\limits_{i=0}^k \binom{m_i}{n_i}(\mod p)$ where \\
-    $m = m_kp^k+m_{k-1}p^{k-1}+...+m_1p+m_0$
-    $n = n_kp^k+n_{k-1}p^{k-1}+...+n_1p+n_0$
-    are the base p expansion.
-\end{itemize}
 \subsubsection{Derangement}
 
 \begin{itemize}
@@ -89,37 +67,8 @@
 \subsection{Number Theory}
 
 \subsubsection{Mobius Function and Inversion}
+$\mu(n)=(-1)^k$ for square-free $n$ with $k$ prime factors, $0$ otherwise. $g(n)=\sum_{d\mid n}f(d) \iff f(n)=\sum_{d\mid n}\mu(d)g(n/d)$; $\sum_{d\mid n}\mu(d)=[n=1]$. See Euler Phi and Mobius.cpp.
 
-\begin{itemize}
-  \setlength{\itemsep}{0.2ex}
-  \setlength{\topsep}{0.3ex}
-  \setlength{\parsep}{0pt}
-  \setlength{\partopsep}{0pt}
-    \item define $\mu(n)$ as the sum of the primitive nth roots of unity depending on the factorization of n into prime factors:
-    \[
-\mu(x) =
-\begin{cases}
-0 & \text{n is not square free} \\
-1 & \text{n has even number of prime factors}\\
--1 & \text{n has odd number of prime factors}
-\end{cases}
-\]
-\item Mobius Inversion:
-$$g(n) = \sum_{d|n}f(d)\leftrightarrow f(n) = \sum_{d|n}\mu(d)g(n/d)$$
-\item $\sum\limits_{d|n}\mu(d) = [n=1]$
-\item $\phi(n) = \sum\limits_{d|n} \mu(d).\frac{n}{d} = n\sum\limits_{d|n}\frac{\mu(d)}{d} = \sum\limits_{d|n}d.\mu(\frac{n}{d})$
-\item $a|b \rightarrow \phi(a)|\phi(b)$
-\item $\phi(mn) = \phi(m).\phi(n).\frac{d}{\phi(d)}$ where $d = gcd(m,n)$
-\item $\phi(n^m) = n^{m-1}\phi(n)$
-\item $\sum\limits_{i=1}^n[gcd(i,n)=k] = \phi(\frac{n}{k})$
-\item $\sum\limits_{i=1}^n gcd(i,n) = \sum\limits_{d|n}d.\phi(\frac{n}{d})$
-
-\item $\sum\limits_{i=1}^n \frac{1}{gcd(i,n)} = \sum\limits_{d|n}\frac{1}{d}.\phi(\frac{n}{d}) = \frac{1}{n}\sum\limits_{d|n}d.\phi(d)$
-
-\item $\sum\limits_{i=1}^n \frac{i}{gcd(i,n)} = \frac{n}{2}.\sum\limits_{d|n}\frac{1}{d}.\phi(\frac{n}{d}) = \frac{n}{2}.\frac{1}{n}\sum\limits_{d|n}d.\phi(d)$
-
-\item $\sum\limits_{i=1}^n \frac{n}{gcd(i,n)} = 2.\sum\limits_{i=1}^n \frac{i}{gcd(i,n)} - 1$
-\end{itemize}
 \subsubsection{GCD and LCM}
 
 \begin{itemize}

@@ -11,6 +11,8 @@ vector<int> bfsDistances(const vector<vector<int>>& g, int source) {
     }
     return dist;
 }
+// Multi-source BFS: push all source nodes into queue with dist[s]=0 initially, then run standard BFS.
+// Finds shortest unweighted distance to the nearest source in O(V+E).
 
 // Iterative DFS order; avoids recursion depth issues on large graphs.
 vector<int> dfsOrder(const vector<vector<int>>& g,int source) {

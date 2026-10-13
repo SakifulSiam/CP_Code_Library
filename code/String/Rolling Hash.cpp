@@ -1,33 +1,30 @@
-// WHEN: compare substrings quickly. TIME: O(n) build and O(1) query. ASSUMES: hashes are probabilistic; double hash greatly lowers but does not remove collision risk.
-// One modular polynomial hash for substring equality; use two moduli when collisions matter.
+// Substring rolling hash with randomized base to prevent anti-hash test generation.
+// O(n) build, O(1) query on [l, r).
+static mt19937_64 hash_rng(chrono::steady_clock::now().time_since_epoch().count());
+static const long long MOD1 = 1000000007, MOD2 = 1000000009;
+static const long long BASE1 = uniform_int_distribution<long long>(300, MOD1 - 2)(hash_rng) | 1;
+static const long long BASE2 = uniform_int_distribution<long long>(300, MOD2 - 2)(hash_rng) | 1;
+
 struct RollingHash {
-    static const long long MOD = 1000000007, BASE = 911382323;
     vector<long long> h, power;
-    RollingHash(const string& s) : h(s.size()+1), power(s.size()+1,1) {
-        for(int i=0;i<(int)s.size();++i) {
-            power[i+1]=power[i]*BASE%MOD;
-            h[i+1]=(h[i]*BASE+(unsigned char)s[i]+1)%MOD;
+    long long mod, base;
+    RollingHash(const string& s, long long mod = MOD1, long long base = BASE1)
+        : h(s.size() + 1), power(s.size() + 1, 1), mod(mod), base(base) {
+        for (int i = 0; i < (int)s.size(); ++i) {
+            power[i + 1] = power[i] * base % mod;
+            h[i + 1] = (h[i] * base + (unsigned char)s[i] + 1) % mod;
         }
     }
-    long long get(int l,int r) const { // [l,r)
-        long long x=(h[r]-h[l]*power[r-l])%MOD;
-        return (x+MOD)%MOD;
+    long long get(int l, int r) const { // [l, r)
+        long long x = (h[r] - h[l] * power[r - l]) % mod;
+        return (x + mod) % mod;
     }
 };
 
-// Double polynomial hash for substring equality; query ranges are [l,r).
 struct DoubleRollingHash {
-    static const long long MOD1=1000000007, MOD2=1000000009, BASE=911382323;
-    vector<long long> h1,h2,p1,p2;
-    DoubleRollingHash(const string& s):h1(s.size()+1),h2(s.size()+1),p1(s.size()+1,1),p2(s.size()+1,1){
-        for(int i=0;i<(int)s.size();++i){
-            long long x=(unsigned char)s[i]+1;
-            p1[i+1]=p1[i]*BASE%MOD1;p2[i+1]=p2[i]*BASE%MOD2;
-            h1[i+1]=(h1[i]*BASE+x)%MOD1;h2[i+1]=(h2[i]*BASE+x)%MOD2;
-        }
-    }
-    pair<long long,long long> get(int l,int r)const{
-        long long a=(h1[r]-h1[l]*p1[r-l])%MOD1,b=(h2[r]-h2[l]*p2[r-l])%MOD2;
-        if(a<0)a+=MOD1;if(b<0)b+=MOD2;return {a,b};
+    RollingHash rh1, rh2;
+    DoubleRollingHash(const string& s) : rh1(s, MOD1, BASE1), rh2(s, MOD2, BASE2) {}
+    pair<long long, long long> get(int l, int r) const {
+        return {rh1.get(l, r), rh2.get(l, r)};
     }
 };

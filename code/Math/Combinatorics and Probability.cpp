@@ -28,7 +28,7 @@ struct Combinatorics {
 // Code: vector<vector<long long>> S(n+1,vector<long long>(k+1)); S[0][0]=1;
 // for i=1..n, j=1..min(i,k): S[i][j]=(j*S[i-1][j]+S[i-1][j-1]) % MOD.
 // PIE: count union = sum(nonempty subsets A) (-1)^(|A|+1) count(intersection A).
-// Probability: favorable equally-likely outcomes / total outcomes.
-// Expected value: E[X]=sum_i E[X_i] (linearity, no independence needed).
-// Indicator trick: write a count as a sum of 0/1 indicators, then take expectations.
-// Coupon collector for n equally likely types: expected draws = n * H_n.
+// Probability: favorable/total; conditional P(A|B)=P(A and B)/P(B). Variance: Var(X)=E[X^2] - (E[X])^2.
+// Expected value: E[X]=sum_i E[X_i] (linearity holds even if dependent). Coupon collector: n * H_n.
+// DAG transitions: E[u] = cost + sum(p_v * E[v]); cyclic states require Gaussian elimination (see Expected Value DP).
+// Indicator trick: write count as sum of 0/1 indicators, then take expectations.

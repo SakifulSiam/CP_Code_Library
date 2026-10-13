@@ -23,16 +23,16 @@ This notebook includes implementations and reference materials for:
 
 | Category | Topics |
 |----------|--------|
-| **Data Structures** | Fenwick Tree, Segment Tree (Lazy), Dynamic Segment Tree, Persistent Segment Tree, DSU, DSU with Rollback, Wavelet Tree, Li Chao Tree, MO's Algorithm, MO with Updates, Sqrt Decomposition, Sqrt Tricks, 2D Fenwick Tree, Static Range Queries, Coordinate Compression |
-| **Dynamic Programming** | DP Fundamentals, Bitmask DP, Digit DP, CHT DP, SOS DP, Expected Value DP, LIS & LCS, Knuth Optimization, Matrix Exponentiation, DP with Segment Tree, DP with Fenwick Tree |
-| **Flow** | Dinic's Max Flow, Min-Cost Max-Flow, Hopcroft-Karp |
-| **Game Theory** | Nim, Sprague-Grundy theorem |
-| **Geometry** | Basic Geometry, Convex Hull, Rotating Calipers, Advanced Geometry Notes |
-| **Graph** | Graph Basics, BFS/DFS, Bellman-Ford, Floyd-Warshall, Multi-source BFS, Articulation Points & Bridges, Biconnected Components, SCC, 2-SAT, Eulerian Path & Circuit, Centroid Decomposition, Heavy Light Decomposition, DSU on Tree, Mo on Tree, Tree DP, Tree Queries |
-| **Math** | Sieve, Miller-Rabin & Pollard-Rho, Modular Inverse, CRT, Linear Diophantine Equation, Euler Phi & Mobius, Euler Theorem & Power Towers, Lucas Theorem, Sum of Divisors, Exact GCD Counting, Stirling Numbers, XOR Hashing, Combinatorics & Probability |
+| **Data Structures** | Fenwick Tree, 2D Fenwick Tree, Fast BIT & Iterative SegTree, Lazy Segment Tree, Dynamic Segment Tree, Persistent Segment Tree, Segment Tree, Treap (Implicit), Monotonic Stack & Queue, DSU, DSU with Rollback, Wavelet Tree, Li Chao Tree, MO's Algorithm, MO with Updates, Sqrt Decomposition, Sqrt Tricks, Static Range Queries, Coordinate Compression, Binary Trie (max XOR) |
+| **Dynamic Programming** | DP Fundamentals, Bitmask DP, Digit DP, Divide & Conquer DP, CHT DP, SOS DP, Expected Value DP, Knapsack & Common DP Patterns (Tree Knapsack, Bounded Knapsack, Bitset Subset-Sum, Edit Distance), LIS & LCS, Knuth Optimization, Matrix Exponentiation, DP with Fenwick Tree |
+| **Flow** | Dinic's Max Flow, Min-Cost Max-Flow, Hopcroft-Karp, Kuhn, Hungarian Algorithm, Flow Applications & Reductions (Min Cut, Project Selection, König, Dilworth) |
+| **Game Theory** | Nim Theory & Notes, Sprague-Grundy Theorem (Mex, Subtraction Game, DAG Games) |
+| **Geometry** | Basic Geometry (Shared Point struct), Convex Hull, Rotating Calipers, Closest Pair of Points, Point in Polygon, Line/Circle Intersection, Half-Plane Intersection |
+| **Graph** | Graph Basics (BFS/DFS, Dijkstra, 0-1 BFS, Topological Sort, Kruskal, Multi-source BFS), Bellman-Ford, Floyd-Warshall, Articulation Points & Bridges, Biconnected Components, SCC, 2-SAT, Eulerian Path & Circuit, Centroid Decomposition (with worked example), Heavy Light Decomposition, DSU on Tree (with worked example), Mo on Tree (with worked example), Tree DP, Tree Queries |
+| **Math** | Sieve (SPF, Linear Sieve, Segmented Sieve), NTT (Polynomial Multiply mod 998244353), Gaussian Elimination (Double & Mod p), Floor Sum & BSGS, Primitive Root, Miller-Rabin & Pollard-Rho, Modular Inverse, CRT, Linear Diophantine Equation, Euler Phi & Mobius, Euler Theorem & Power Towers, Lucas Theorem, Sum of Divisors, Exact GCD Counting, Stirling Numbers, Combinatorics & Probability |
+| **Misc** | Template (Fast IO, Debug Macro, Compile Flags, pb_ds Ordered Set, Custom Hash, __int128 IO, Stress-test script), Contest Checklist & Complexity Table, STL Reference, Bit Hacks, XOR Hashing |
 | **Searching** | Basic Binary Search, Basic Array Patterns, Range & Search Techniques |
-| **String** | KMP, Z-Algorithm, Manacher, Aho-Corasick, Suffix Array, Rolling Hash, Trie, Trie Bit |
-| **Misc** | STL Reference, Template, Bit Hacks |
+| **String** | KMP, Z-Algorithm, Manacher, Aho-Corasick, Suffix Array, Suffix Automaton, Palindromic Tree (Eertree), Lyndon Factorization & Min Rotation, Mersenne 61-bit Hash, Rolling Hash (Randomized Base), Trie |
 
 ---
 

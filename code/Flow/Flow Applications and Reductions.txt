@@ -1,0 +1,31 @@
+1. MINIMUM CUT RECONSTRUCTION:
+After computing max flow from source S to sink T, run BFS from S on residual graph:
+traverse only edges where edge.flow < edge.cap.
+Let reachable set be A, unreachable set be B (with T in B).
+The minimum cut consists of original edges from A to B. Total cut capacity equals max flow.
+
+2. PROJECT SELECTION / MAXIMUM WEIGHT CLOSURE:
+Subset of tasks/projects S such that if u in S and u requires v, then v in S. Maximize sum of weights.
+- If weight w_i > 0: add edge S -> i with capacity w_i.
+- If weight w_i < 0: add edge i -> T with capacity |w_i|.
+- If dependency u requires v: add edge u -> v with capacity INF.
+Max profit = (sum of all positive w_i) - MinCut(S, T).
+Selected projects are all vertices in the S-side of the minimum cut.
+
+3. KÖNIG'S THEOREM (BIPARTITE MATCHING REDUCTIONS):
+In any bipartite graph:
+- Maximum Matching = Minimum Vertex Cover.
+- Maximum Independent Set = Total Vertices - Maximum Matching.
+- Minimum Edge Cover = Total Vertices - Maximum Matching (for graphs without isolated vertices).
+To construct Min Vertex Cover:
+Start DFS/BFS from all unmatched vertices on Left side using alternating paths (unmatched Left->Right, matched Right->Left).
+Min Vertex Cover = (Left vertices NOT visited) + (Right vertices visited).
+
+4. DILWORTH'S THEOREM & DAG PATH COVERS:
+- Minimum Path Cover in DAG (disjoint paths): split each vertex v into v_out and v_in.
+  Add edge u_out -> v_in for each DAG edge (u, v).
+  Min Path Cover = |V| - MaxBipartiteMatching.
+- General Path Cover (paths may share vertices): compute transitive closure (Floyd-Warshall) first,
+  then apply disjoint path cover.
+- Dilworth's Theorem: in any poset (DAG), the size of the minimum chain cover (path cover)
+  equals the size of the maximum antichain (subset of vertices with no reachability between any pair).

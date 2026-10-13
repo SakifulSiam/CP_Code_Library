@@ -31,16 +31,6 @@
   \item Division modulo $m$ means multiplication by an inverse. $a^{-1}$ exists exactly when $\gcd(a,m)=1$.
   \item For prime $p$ and $p\nmid a$, Fermat gives $a^{p-1}\equiv1\pmod p$ and $a^{-1}\equiv a^{p-2}\pmod p$.
 \end{itemize}
-\subsection{Binary Search Checklist}
-\begin{itemize}
-  \setlength{\itemsep}{0.2ex}
-  \setlength{\topsep}{0.3ex}
-  \setlength{\parsep}{0pt}
-  \setlength{\partopsep}{0pt}
-  \item Binary search needs a monotone predicate: once true (or false), it stays that way on the remaining side.
-  \item Maintain a clear invariant such as $P(l)=\text{false}$ and $P(r)=\text{true}$; stop when $r-l=1$.
-  \item Use $l+(r-l)/2$ to avoid midpoint overflow. For answer search, first prove a feasible bound and test feasibility in each step.
-\end{itemize}
 \subsection{Bit and Geometry Reminders}
 \begin{itemize}
   \setlength{\itemsep}{0.2ex}

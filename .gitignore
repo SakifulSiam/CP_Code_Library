@@ -375,3 +375,5 @@ MigrationBackup/
 /notebook.log
 /notebook.out
 /notebook.toc
+/venv/
+/tmp/

@@ -1,0 +1,33 @@
+1. INPUT SIZE (N) TO TIME COMPLEXITY GUIDE (for ~1 second limit / ~10^8 operations):
+- N <= 10        : O(N!) or O(N^6) - Permutations, brute force, backtracking
+- N <= 20..22    : O(2^N * N) - Bitmask DP, meet-in-the-middle (2^(N/2)), SOS DP
+- N <= 100       : O(N^4) - Floyd-Warshall variants, 4-nested loops
+- N <= 400..500  : O(N^3) - Floyd-Warshall, matrix exponentiation (N^3 log K), standard MCMF
+- N <= 2000..3000: O(N^2) - 2D DP, all pairs, basic geometry, Dinic on dense graphs
+- N <= 10^5      : O(N sqrt(N)) - Mo's algorithm, sqrt decomposition, block queries
+- N <= 10^6      : O(N log N) or O(N log^2 N) - Sorting, Segment Tree, DSU, HLD, Suffix Array, NTT
+- N <= 10^7..10^8: O(N) - Linear sieve, two pointers, prefix sums, KMP, BFS/DFS, basic array scan
+- N > 10^9       : O(log N) or O(1) - Binary search, matrix power, math formulas, GCD, Euler's totient
+
+2. BEFORE YOU SUBMIT CHECKLIST:
+[ ] Array Bounds & Sizes:
+    - 0-indexed vs 1-indexed consistency. Check row/col and n/m swaps.
+    - SegTree: 4*N; Treap/Trie/SAM: 2*N nodes; Mo on Tree: 2*N doubled tour; 2-SAT: 2*N.
+[ ] Integer Overflow:
+    - Are sums, products, distances, capacities declared as long long?
+    - Cast intermediate products before multiplication: 1LL * a * b % MOD.
+    - Use __int128 for intermediate values exceeding 64-bit bounds.
+[ ] Modular Arithmetic:
+    - Subtraction modulo M: always do (a - b % M + M) % M.
+    - Avoid division by zero: divide means multiplying by modInverse(b, MOD).
+[ ] Multi-test Reset:
+    - Clean up EVERY global variable, vector, tree, and graph: g.clear(), seen.assign(), etc.
+    - Do NOT call memset on huge buffers inside the test case loop; clear only up to N.
+[ ] Extreme Corner Cases:
+    - N = 0, N = 1, N = 2.
+    - Empty arrays/strings, negative weights, zero coordinates, identical values.
+    - Disconnected graph, trees with a single edge, self-loops, multiple parallel edges.
+[ ] Interactive Problems:
+    - Always flush output: cout << endl (or fflush(stdout)) after printing answer/query.
+[ ] Floating Point:
+    - Use double / long double; compare with EPS (1e-9); avoid == on floats.
